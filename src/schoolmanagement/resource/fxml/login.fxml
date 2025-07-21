@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+
+<StackPane fx:id="mainPane" prefHeight="583.0" prefWidth="713.0"
+           xmlns="http://javafx.com/javafx/17.0.12"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="schoolmanagement.java.controllers.LoginController">
+
+    <children>
+        <VBox prefHeight="547.0" prefWidth="713.0">
+            <children>
+                <!-- HEADER KUNING -->
+                <HBox prefHeight="323.0" prefWidth="713.0"
+                      style="-fx-background-color: #FFCC00;" VBox.vgrow="ALWAYS">
+                    <children>
+                        <VBox alignment="TOP_CENTER" maxHeight="-Infinity"
+                              prefHeight="158.0" prefWidth="780.0">
+                            <children>
+                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                                      text="STUDENT INFORMATION SYSTEM" wrappingWidth="508.017578125">
+                                    <font>
+                                        <Font name="Berlin Sans FB" size="35.0"/>
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="40.0"/>
+                                    </VBox.margin>
+                                </Text>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <!-- BODY PUTIH -->
+                <HBox prefHeight="481.0" prefWidth="713.0"
+                      style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS"/>
+            </children>
+        </VBox>
+
+        <!-- KOTAK LOGIN -->
+        <VBox fx:id="detailsPane"
+              focusTraversable="true"
+              maxHeight="-Infinity" maxWidth="-Infinity"
+              prefHeight="357.0" prefWidth="298.0"
+              style="-fx-background-color: #ffffff;
+                     -fx-background-radius: 20;
+                     -fx-border-radius: 20;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0.5, 0, 0);">
+            <children>
+                <HBox alignment="CENTER" prefHeight="110.0" prefWidth="360.0">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="85.0" prefWidth="83.0"
+                               style="-fx-background-color: #006580; -fx-background-radius: 50;">
+                            <graphic>
+                                <ImageView fitHeight="64.0" fitWidth="69.0"
+                                           pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../image/icons8_graduation_cap_52px.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <HBox.margin>
+                                <Insets top="8.0"/>
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+
+                <VBox alignment="TOP_CENTER" prefHeight="211.0" prefWidth="363.0">
+                    <children>
+                        <!-- USERNAME -->
+                        <HBox alignment="CENTER" prefHeight="69.0" prefWidth="374.0">
+                            <children>
+                                <ImageView fitHeight="39.0" fitWidth="44.0"
+                                           pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../image/icons8_user_64px.png"/>
+                                    </image>
+                                </ImageView>
+                                <JFXTextField fx:id="userNameTextField"
+                                              labelFloat="true"
+                                              onKeyPressed="#handleKeyPressed"
+                                              prefHeight="30.0" prefWidth="205.0"
+                                              promptText="Username">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </JFXTextField>
+                            </children>
+                        </HBox>
+
+                        <!-- PASSWORD -->
+                        <HBox alignment="CENTER" prefHeight="69.0" prefWidth="374.0">
+                            <children>
+
+                                <ImageView fitHeight="29.0" fitWidth="33.0"
+                                           pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../image/icons8_lock_52px.png"/>
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                </ImageView>
+                                <JFXPasswordField fx:id="passwordTextField"
+                                                  onKeyPressed="#handleKeyPressed"
+                                                  prefHeight="25.0" prefWidth="205.0"
+                                                  promptText="Password">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="25.0"/>
+                                    </HBox.margin>
+                                </JFXPasswordField>
+                            </children>
+                        </HBox>
+
+                        <!-- ROLE SELECTION -->
+                        <HBox alignment="CENTER" prefHeight="69.0" prefWidth="374.0" spacing="10">
+                            <children>
+                                <Label text="Role:"/>
+                                <JFXComboBox fx:id="roleComboBox" promptText="Select Role" prefWidth="150">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="student"/>
+                                            <String fx:value="teacher"/>
+                                        </FXCollections>
+                                    </items>
+                                </JFXComboBox>
+                            </children>
+                        </HBox>
+
+                        <!-- TOMBOL LOGIN -->
+                        <HBox alignment="CENTER" prefHeight="69.0" prefWidth="374.0">
+                            <children>
+                                <JFXButton fx:id="loginBtn"
+                                           buttonType="RAISED"
+                                           onAction="#handleLoginBtn"
+                                           prefHeight="36.0" prefWidth="85.0"
+                                           style="-fx-background-color: #006581;"
+                                           text="Login" textFill="WHITE"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+                <!-- SIGNUP LINK -->
+                <HBox alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="363.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have account ?">
+                            <HBox.margin>
+                                <Insets right="5.0"/>
+                            </HBox.margin>
+                        </Text>
+                        <JFXButton fx:id="signUpBtn"
+                                   onAction="#handleSignUpBtn"
+                                   prefHeight="37.0" prefWidth="73.0"
+                                   text="Signup" textFill="#006581">
+                            <HBox.margin>
+                                <Insets right="10.0"/>
+                            </HBox.margin>
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </JFXButton>
+                    </children>
+                </HBox>
+            </children>
+
+            <!-- JARAK ATAS -->
+            <StackPane.margin>
+                <Insets top="60.0"/>
+            </StackPane.margin>
+
+            <!-- EFEK BAYANGAN -->
+            <effect>
+                <DropShadow height="5.0" radius="2.0" width="5.0"/>
+            </effect>
+        </VBox>
+
+        <!-- LOADER -->
+        <HBox fx:id="loaderPane"
+              alignment="CENTER"
+              maxHeight="-Infinity" maxWidth="-Infinity"
+              prefHeight="74.0" prefWidth="152.0"
+              spacing="10.0"
+              style="-fx-background-color: #fff;"
+              visible="false">
+            <children>
+                <JFXSpinner/>
+                <Label text="Loading ..."/>
+            </children>
+            <effect>
+                <DropShadow/>
+            </effect>
+        </HBox>
+    </children>
+
+    <!-- EFEK UMUM -->
+    <effect>
+        <DropShadow/>
+    </effect>
+</StackPane>
